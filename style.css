@@ -1,0 +1,18 @@
+body *{
+	color: black;
+	background-color: hsl(0, 50%, 0%);
+	font-style: tahoma, sans-serif;
+}
+
+h1, p, section, a{
+	margin: 1em;
+	text-align: center;
+}
+
+.button{
+	cursor: pointer;
+	text-decoration: none;
+	padding: 5px 8px;
+	background-color: hsla(0, 100%, 100%, .6);
+	border: 1px solid hsla(0, 100%, 100%, .2);
+}

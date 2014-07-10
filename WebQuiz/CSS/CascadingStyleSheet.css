@@ -1,0 +1,73 @@
+.show{display:block;}
+.hide{display:none;}
+.correct{color: hsl(120, 70%, 45%);}
+.wrong, #errorN, #errorE{color: hsl(0, 70%, 45%);}
+.normal, h2, h1, legend, #login label{color: hsl(0, 100%, 100%);}
+
+#cKey{background-color: hsl(120, 60%, 45%);}
+#wKey{background-color: hsl(0, 70%, 45%);}
+#loginN{text-transform: capitalize;}
+
+#submit, #key{
+	padding: 0;
+	margin: 10px 0;
+}
+
+#cKey, #wKey, #login, #submit, h2, form{text-align: center;}
+fieldset, #cKey, #wKey{display: inline-block;}
+button, .button, label{cursor: pointer; cursor: hand;}
+#login div{margin-bottom: 20px;}
+#login input, #cKey, #wKey, button, .button, #quiz label{border: 2px solid black;}
+button, .button{
+	display: inline-block;
+	text-decoration: none;
+	color: black;
+	padding: 5px 8px;
+	background-color: buttonface;
+	padding: 4px 0;
+	border-radius: 10px;
+}
+#login input{
+	margin-top: 5px;
+	width: 280px;
+}
+#login, form{
+	margin: 0 auto;
+	max-width: 960px;
+}
+#cKey, #wKey, button, .button{
+	width: 80px;
+}
+
+legend, label, span, button, .button, #login input, #login div{
+	font-size: 120%;
+	font-family: sans-serif;
+}
+legend{
+	width: 100%;
+}
+
+fieldset input{display: none;}
+body{
+	background-color: hsl(230, 50%, 40%);
+	padding-top: 1%;
+}
+fieldset{
+	width: 90%;
+	margin: 4px 2px;
+	border: 3px solid black;
+}
+
+#quiz label{
+	display: block;
+	height: 25px;
+	line-height: 25px;
+	background-color: white;
+}
+#quiz label:hover, button:hover, .button:hover{background-color: hsl(0, 0%, 40%);}
+input[type="radio"]:checked+label{background-color: hsla(0, 0%, 50%, .2) !important;}
+
+
+@media (min-width: 750px){
+	fieldset{width: 45%;}
+}

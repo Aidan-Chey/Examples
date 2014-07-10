@@ -1,0 +1,45 @@
+html{
+	background-color: hsl(0, 20%, 4%);
+	color: hsl(0, 5%, 90%);
+	font-size: 120%;
+	font-family: tahoma, sans-serif;
+}
+body{
+	text-align: center;
+	margin-bottom: 10px;
+}
+.center{display:inline-block;}
+table{margin: 20px 0;}
+label{text-align: right;}
+td{padding: 5px 8px;}
+td:first-child{text-align: right;}
+td:last-child{text-align: left;}
+input, select, textarea, button{
+	background-color: hsl(0, 5%, 80%);
+	color: black;
+	border: none;
+	height: 25px;
+	margin: 0;
+}
+textarea{
+	height: 100%;
+	font-family: tahoma, sans-serif;
+}
+.error{
+	color: red;
+}
+input:not([type="radio"]):not([type="button"]), select, textarea{
+	width: 100%;
+	padding: 0;
+}
+input[type="radio"]{width: 25px;}
+button, input[type="button"], .button{
+	text-decoration: none;
+	cursor: pointer; cursor: hand;
+	height: 40px;
+	min-width: 100px;
+	padding: 0 5px;
+	font-weight: bolder;
+}
+button:active, input[type="button"]:active{background-color: hsl(0, 5%, 50%);}
+

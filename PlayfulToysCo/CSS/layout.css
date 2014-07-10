@@ -1,0 +1,71 @@
+body{font-size: 14px;
+}
+#page_head{height: 6em;
+}
+nav, article{display: block;
+}
+nav, h1{padding: 0;
+}
+section{padding: 6.2em 0 6em 0;
+}
+article{margin: 0 auto;
+	padding: 1.5em 0;
+}
+#feature{ display: none;
+}
+#logo{ 
+	display: block;
+}
+#title{ margin-top: 3em;
+}
+form{ padding-top: 3em;
+}
+#page_foot{ height: 5em;
+	padding-top: 1em;
+}
+#page_head, #page_foot, nav{ text-align: center;
+}
+@media(max-width: 24em){
+	#page_head{ height: 7.5em;
+	}
+	section{ padding: 10.5em 0 3em 0;
+	}
+	#title{ margin-top: 4.5em;
+	}
+}
+@media(max-width: 30em){
+	nav{ font-size: .8em;
+	}
+	#logo{ display: none;
+	}
+}
+@media (min-width: 51.5em){ /*Needed to add .5em becuase for some reason the navigation was moving below the title before the header was enlarged to accommodate it.*/
+	#page_head{height: 3em;
+	}
+	nav{ left: 1.5em;
+		margin: 0;
+	}
+	#logo{ 
+	}
+	h1, nav{ position: relative;
+	}
+	section{ padding: 3.2em 0 3em 0;
+	}
+	article, h1, nav{ display: inline-block;
+	}
+	form{ padding-top: .5em;
+	}
+	#feature{ display: inline-block;
+		vertical-align: top;
+	}
+	#title{ margin-top: 1.5em;
+	}
+	#page_foot{ height: 5em;
+	}
+}
+@media (min-width: 40em) and (max-width: 60em){
+	body{font-size: 16px;}
+}
+@media (min-width: 60em) {
+	body{font-size: 18px;}
+}

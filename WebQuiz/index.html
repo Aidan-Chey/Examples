@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Web Development Quiz</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="description" content="JavaScript Web Development Quiz">
+	<meta name="author" content="Aidan Dunn">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge"> 
+	<link rel="stylesheet" type="text/css" href="CSS/CascadingStyleSheet.css">
+</head>
+<body>
+<noscript>No JavaScript</noscript>
+<!-- Login Page -->
+<div id="login" class="show">
+	<h1>Login to do the Quiz</h1>
+	<label for="loginN" class="login">Full Name</label><br>
+	<input id="loginN" type="text" placeholder="Name Here" required autofocus />
+	<div id="errorN"></div>
+	<label for="loginE" class="login">Email</label><br>
+	<input id="loginE" type="email" placeholder="Email Here" required />
+	<div id="errorE"></div>
+	<button type='submit' onClick="checkLogin()">Login</button>
+	<a class="button" href="/">Back</a>
+</div>
+
+<!-- Quiz Page -->
+<div id="quiz" class="hide">
+	<h2>Javascript, Web Development Quiz, By Aidan Dunn</h2>
+	<form>
+		<fieldset onClick='legendReset(this)'>
+			<legend id="Q1">What Does CSS stand for?</legend>
+			<input  type="radio" name="Q1" id="Q1.1" value="0"><label for="Q1.1">Cascading CSS</label>
+			<input type="radio" name="Q1" id="Q1.2" value="1" /><label for="Q1.2">Cascading style sheets</label>
+			<input type="radio" name="Q1" id="Q1.3" value="0" /><label for="Q1.3">Cascading separate style</label>
+		</fieldset>
+		<fieldset onClick='legendReset(this)'>
+			<legend id="Q2">Which attribute can set text to bold?</legend>
+			<input type="radio" name="Q2" id="Q2.1" value="0" /><label for="Q2.1">Text-decoration</label>
+			<input type="radio" name="Q2" id="Q2.2" value="0" /><label for="Q2.2">Font style</label>
+			<input type="radio" name="Q2" id="Q2.3" value="1" /><label for="Q2.3">Font Weight</label>
+		</fieldset>
+		<fieldset onClick='legendReset(this)'>
+			<legend id="Q3">Which tag is used to link an external SCC file?</legend>
+			<input type="radio" name="Q3" id="Q3.1" value="0" /><label for="Q3.1">Script</label>
+			<input type="radio" name="Q3" id="Q3.2" value="1" /><label for="Q3.2">Link</label>
+			<input type="radio" name="Q3" id="Q3.3" value="0" /><label for="Q3.3">Rel</label>
+		</fieldset>
+		<fieldset onClick='legendReset(this)'>
+			<legend id="Q4">Which attribute sets the underline property?</legend>
+			<input type="radio" name="Q4" id="Q4.1" value="0" /><label for="Q4.1">Font style</label>
+			<input type="radio" name="Q4" id="Q4.2" value="1" /><label for="Q4.2">Text-decoration</label>
+			<input type="radio" name="Q4" id="Q4.3" value="0" /><label for="Q4.3">Font weight</label>
+
+		</fieldset>
+		<fieldset onClick='legendReset(this)'>
+			<legend id="Q5">Which measurment is NOT relative?</legend>
+			<input type="radio" name="Q5" id="Q5.1" value="0" /><label for="Q5.1">Px</label>
+			<input type="radio" name="Q5" id="Q5.2" value="1" /><label for="Q5.2">Cm</label>
+			<input type="radio" name="Q5" id="Q5.3" value="0" /><label for="Q5.3">%</label>
+			<input type="radio" name="Q5" id="Q5.4" value="0" /><label for="Q5.4">Em</label>
+		</fieldset>
+		<fieldset onClick='legendReset(this)'>
+			<legend id="Q6">Which measurment IS relative?</legend>
+			<input type="radio" name="Q6" id="Q6.1" value="1" /><label for="Q6.1">Em</label>
+			<input type="radio" name="Q6" id="Q6.2" value="0" /><label for="Q6.2">Cm</label>
+			<input type="radio" name="Q6" id="Q6.3" value="0" /><label for="Q6.3">MM</label>
+			<input type="radio" name="Q6" id="Q6.4" value="0" /><label for="Q6.4">Inch</label>
+		</fieldset>
+		<fieldset onClick='legendReset(this)'>
+			<legend id="Q7">What attribute is used to move element content away from its border?</legend>
+			<input type="radio" name="Q7" id="Q7.1" value="0" /><label for="Q7.1">Margin</label>
+			<input type="radio" name="Q7" id="Q7.2" value="1" /><label for="Q7.2">Padding</label>
+			<input type="radio" name="Q7" id="Q7.3" value="0" /><label for="Q7.3">Border</label>
+			<input type="radio" name="Q7" id="Q7.4" value="0" /><label for="Q7.4">Width</label>
+		</fieldset>
+		<fieldset onClick='legendReset(this)'>
+			<legend id="Q8">Which attribute does not contribute to a block element's total width?</legend>
+			<input type="radio" name="Q8" id="Q8.1" value="0" /><label for="Q8.1">Width</label>
+			<input type="radio" name="Q8" id="Q8.2" value="0" /><label for="Q8.2">Border</label>
+			<input type="radio" name="Q8" id="Q8.3" value="1" /><label for="Q8.3">Background-image</label>
+			<input type="radio" name="Q8" id="Q8.4" value="0" /><label for="Q8.4">Padding</label>
+		</fieldset>
+		<fieldset onClick='legendReset(this)'>
+			<legend id="Q9">What Property changes positioned element's display order?</legend>
+			<input type="radio" name="Q9" id="Q9.1" value="0" /><label for="Q9.1">Width</label>
+			<input type="radio" name="Q9" id="Q9.2" value="0" /><label for="Q9.2">Background</label>
+			<input type="radio" name="Q9" id="Q9.3" value="1" /><label for="Q9.3">Z-index</label>
+			<input type="radio" name="Q9" id="Q9.4" value="0" /><label for="Q9.4">Azimuth</label>
+		</fieldset>
+		<fieldset onClick='legendReset(this)'>
+			<legend id="Q10">Which value of background-repeat will cause a background to repeat vertically?</legend>
+			<input type="radio" name="Q10" id="Q10.1" value="0" /><label for="Q10.1">Repeat-x</label>
+			<input type="radio" name="Q10" id="Q10.2" value="0" /><label for="Q10.2">Repeat</label>
+			<input type="radio" name="Q10" id="Q10.3" value="1" /><label for="Q10.3">Repeat-y</label>
+			<input type="radio" name="Q10" id="Q10.4" value="0" /><label for="Q10.4">No-repeat</label>
+		</fieldset>
+	</form>
+	<div id="submit">
+		<div id="key" class="hide">
+		<span id="cKey">Correct</span>
+		<span id="wKey">Wrong</span>
+		</div>
+		<button type='submit' onClick="submitQuiz()">Submit</button>
+		<a class="button" href="/">Back</a>
+	</div>
+</div>
+<script src="JS/JavaScript.js"></script>
+</body>
+</html>

@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="">
+  <meta name="author" content="Aidan Dunn">
+  <title>Playful Toys Co</title>
+  <link rel="Shortcut Icon" href="images/Logo.ico" type="image/x-icon">
+  <link rel="stylesheet" href="CSS/normalize.css">
+  <link rel="stylesheet" href="CSS/layout.css">
+  <link rel="stylesheet" href="CSS/simple.css">
+  <!--[if lt IE 9]>
+	<script src="JS/respond.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+	<header id="page_head">
+	  <h1>Playful Toys Co.</h1>
+	  <nav>
+	  	<a href="index.html">Home</a>
+	  	<a href="#Foot" class="smoothScroll">Foot</a>
+	  </nav>
+	</header>
+	<h2 id="title">Order Form</h2>
+	<form method="post" action="process.aspx" id="order">
+		<table>
+			<tr>
+				<td><label for="txt_name">Full Name: </label></td>
+				<td><input type="text" id="txt_name" placeholder="Name Here"/></td>
+			</tr>
+			<tr>
+				<td><label for="txt_phone">Phone: </label></td>
+				<td><input type="text" id="txt_phone" placeholder="Number Here"/></td>
+			</tr>
+			<tr>
+				<td><label for="txt_address">Street Address: </label></td>
+				<td><input type="text" id="txt_address" placeholder="Address Here"/></td>
+			</tr>
+			<tr>
+				<td><label for="txt_city">City: </label></td>
+				<td><input type="text" id="txt_city" placeholder="City Here"/></td>
+			</tr>
+			<tr>
+				<td><label for="txt_state">State / Province: </label></td>
+				<td><input type="text" id="txt_state" placeholder="State Here"/></td>
+			</tr>
+			<tr>
+				<td><label for="txt_zip">Post / Zip Code: </label></td>
+				<td><input type="text" id="txt_zip" placeholder="Zip Here"/></td>
+			</tr>
+			<tr>
+				<td><label for="txt_country">Country: </label></td>
+				<td><input type="text" id="txt_country" placeholder="Country Here"/></td>
+			</tr>
+		</table>
+		<table><h3>Product Quantity<h3>
+			<tr>
+				<td><label for="qty_wood">Wooden Toys:</label> </td>
+				<td><input type="number" id="qty_wood" placeholder="Quantity"/></td>
+			</tr>
+			<tr>
+				<td><label for="qty_soft">Soft Toys: </label></td>
+				<td><input type="number" id="qty_soft" placeholder="Quantity"/></td>
+			</tr>
+			<tr>
+				<td><label for="qty_games">Board Games: </label></td>
+				<td><input type="number" id="qty_games" placeholder="Quantity"/></td>
+			</tr>
+			<tr>
+				<td><label for="qty_dolls">Dolls: </label></td>
+				<td><input type="number" id="qty_dolls" placeholder="Quantity"/></td>
+			</tr>
+		</table>
+		<div id="extra">
+			<label for="extra">Extra Information: </label>
+			<br><textarea rows="5" cols="70" id="extra"></textarea>
+		</div>
+		<input type="button" value="Submit" href="index.html" id="submit"/>
+		</form>
+		<div id="post">
+			<h3>Shipping Information<h3>
+			<p>
+				The Playful Toys Co. store and distribution centre  is located in Taupo, New Zealand.<br>We do ship internationally at varying  fees depending on country.
+			
+			<ul>
+				<li>New Zealand
+					<ul>
+						<li>North Island: $2</li>
+						<li>South Island: $4</li>
+					</ul>
+				</li>
+				<hr>
+				<li>Australia: $10</li>
+				<li>International: $15</li>
+			</ul>
+			</p>
+			<p>
+				Shipping times will vary depending on distance, the greater from Taupo, New Zealand the longer it will take.
+			
+			<ul>
+				<li>New Zealand
+					<ul>
+						<li>North Island: 1 day</li>
+						<li>South Island: 2 days</li>
+					</ul>
+				</li>
+				<hr>
+				<li>Australia: 3 days</li>
+				<li>International: 4+ days</li>
+			</ul>
+			</p>
+		</div>
+	<a name="Foot"></a>
+	<footer id="page_foot">
+		<div class="alignment">
+			<span class="left"><b>Contact Information</b><br>Address: 123 Fake Street, Narnia<br>Phone: +23 09 6595231<br>Email: info@PlayfulToys.com</span><span class="right"><a href="Feedback.html"><b>Feedback Form</b></a></span>
+		</div>
+	</footer>
+  <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+  <script type="text/javascript" src="JS/smoothscroll.js"></script> 
+</body>
+</html>

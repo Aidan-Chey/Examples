@@ -1,0 +1,161 @@
+@import url(http://fonts.googleapis.com/css?family=Passion+One:400,700);
+}
+body{ overflow-y: scroll;
+	font-family: tahoma, sans-serif;
+}
+#page_head{
+	position: fixed;
+	top: 0px;
+	border-bottom: solid 3px Black;
+	z-index: 10; /*Needed to do this so the "input quantity feild's buttons" did not show through header.*/
+}
+#page_head, #page_foot{ background-color: rgb(100, 160, 255);
+}
+#page_head, #page_foot, section{ width: 100%;
+}
+section:nth-of-type(2){ background-color: rgba(100, 160, 255, .2); 
+}
+section:nth-of-type(3){ background-color: rgba(100, 160, 255, .3); 
+}
+section:nth-of-type(4){ background-color: rgba(100, 160, 255, .4); 
+}
+section:nth-of-type(5), section:nth-of-type(4), section:nth-of-type(3), section:nth-of-type(2){ border-top: solid 2px rgb(200, 200, 200);
+}
+h2, h3, h4{ color: rgb(90, 90, 90);
+}
+h1{
+	font-size: very large;
+	margin: .1em;
+	color: white;
+}
+nav > a, section, h2, h3, .title{ text-align: center;
+}
+#logo{ margin: 0 auto;
+	width: 14em;
+}
+#content{ display: inline-block;
+	width: 67%;
+}
+nav > a{
+	display: inline-block;
+	padding: 0.15em 0.3em;
+	background-color: rgba(100, 149, 237, 0.8);
+	color: rgb(90, 90, 90);
+	font-size: 1.95em;
+	border-style: none;
+	border-radius: 0.3em;
+}
+nav > a:active{ color: rgba(96, 96, 96, 1);
+	background-color: rgba(255, 255, 255, .5);
+}
+a{ text-decoration: none;
+	-webkit-transition: all .15s ;
+	-moz-transition: all .15s ;
+	-o-transition: all .15s ;
+	transition: all .15s ;
+}
+article{ color: rgb(90, 90, 255);
+	font-weight: 600;
+}
+article > img{ width: 20em;
+}
+p{ font-size: medium;
+	padding: 2em 0;
+	color: black;
+}
+h2{
+	font-size: 2em;
+	font-weight: 500;
+	padding-bottom: .8em;
+}
+nav > a, h2{
+	font-family: 'Passion One', tahoma, sans-serif; 
+}
+p, h2{ max-width: 1000px;
+}
+p, h2, ul, form, #submit, .order{ margin: 0 auto;
+}
+h4{ padding-bottom: .5em;
+	margin: 0;
+
+}
+#feature{
+	margin: 1em;
+	padding: .5em;
+	width: 13em;
+	background-color: rgb(0, 120, 120);
+}
+.alignment{ margin:0 auto;
+	padding: 0 1em;
+	max-width: 900px;
+	text-align: left;
+}
+ul{ margin: 0 auto;
+	padding: 0;
+}
+li{ font-size: 97%;
+	padding: .2em 0;
+}
+form{
+	padding: 0;
+	max-width: 600px;
+	font-weight: 700;
+}
+.left{ float: left; 
+	font-size: 80%;
+}
+.right{ float: right;
+}
+.right > a{ color: Black;
+	text-decoration: underline
+}
+#order{ margin: 0 auto;
+}
+table{ width: 80%;
+	margin: 1em auto;
+}
+td{ padding:10px;
+}
+tr td:last-child{
+	text-align: right;
+}
+hr{ width: 20em;
+}
+#extra > textarea{ width:100%; `
+	max-width: 98%; /*This is to help how the box is resizable by the user, I son't want it to go any larger than this.*/
+	min-height: 4em;
+}
+#feature> form > textarea{
+	min-height: 13em;
+	max-height: 20em;
+	width: 98%;
+	max-width: 98%; /*This is to help how the box is resizable by the user, I son't want it to go any larger than this.*/
+}
+#test_name, #feature> form > textarea{ margin-bottom: .8em;
+}
+.order{ padding: 1em;
+}
+#extra{ padding: 0 .5em;
+	padding-bottom: 1em;
+}
+#post{ padding: 1.5em .5em 0 .5em;
+}
+#submit{ min-height: 3em;
+}
+#submit:active, .order:active{ background-color: rgb(100, 160, 200);
+}
+#submit, .order{
+	display: block;
+	font-weight: 700;
+	font-family: tahoma, sans-serif; 
+	width: 9em;
+	background-color: rgb(100, 160, 255);
+}
+#submit, .order, #feature{ color: rgb(255, 255, 255);
+
+	border: solid 2px black;
+	border-radius: 7px;
+}
+#page_foot{ position: relative;
+	border-top: solid 3px black;
+}

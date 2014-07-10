@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="">
+  <meta name="author" content="Aidan Dunn">
+  <title>Playful Toys Co</title>
+  <link rel="Shortcut Icon" href="images/Logo.ico" type="image/x-icon">
+  <link rel="stylesheet" href="CSS/normalize.css">
+  <link rel="stylesheet" href="CSS/layout.css">
+  <link rel="stylesheet" href="CSS/simple.css">
+  <!--[if lt IE 9]>
+	<script src="JS/respond.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+	<header id="page_head">
+	  <h1>Playful Toys Co.</h1>
+	  <nav>
+	  	<a href="index.html">Home</a>
+	  	<a href="#Foot" class="smoothScroll">Foot</a>
+	  </nav>
+	</header>
+	<h2 id="title">Feedback Form</h2>
+	<form method="post" action="process.aspx" id="order">
+		<table>
+			<tr>
+				<td><label for="feed_name">Nickname: </label></td>
+				<td><input type="text" id="feed_name" placeholder="Nickname Here"/></td>
+			</tr>
+			<tr>
+				<td colspan="2">This is only a Nickname and used as an anonymous Identifier, your IP will be recorded with this name in case of use outside of the <a href="#ToU">Terms of Use</a>.</td>
+			</tr>
+		</table>
+		<div id="extra">
+			<label for="feedback">Feedback: </label>
+			<br><textarea id="feedback"></textarea>
+		</div>
+		<input type="button" value="Submit" href="Index.html" id="submit"/>
+	</form>
+	<div id="post">
+		<h3>Disclaimer<h3>
+		<p>
+			Your feedback is appreciated and anonymous, none of your personal details (excepting those already mentioned) will be recorded with your submission.
+		</p>
+	</div>
+	<a name="Foot"></a>
+	<footer id="page_foot">
+		<div class="alignment">
+			<span class="left"><b>Contact Information</b><br>Address: 123 Fake Street, Narnia<br>Phone: +23 09 6595231<br>Email: info@PlayfulToys.com</span>
+		</div>
+	</footer>
+  <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+  <script type="text/javascript" src="JS/smoothscroll.js"></script> 
+</body>
+</html>
