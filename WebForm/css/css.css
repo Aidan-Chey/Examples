@@ -14,11 +14,11 @@ label{text-align: right;}
 td{padding: 5px 8px;}
 td:first-child{text-align: right;}
 td:last-child{text-align: left;}
-input, select, textarea, button{
+input, select, textarea{
 	background-color: hsl(0, 5%, 80%);
 	color: black;
 	border: none;
-	height: 25px;
+	height: 19px;
 	margin: 0;
 }
 textarea{
@@ -32,14 +32,22 @@ input:not([type="radio"]):not([type="button"]), select, textarea{
 	width: 100%;
 	padding: 0;
 }
-input[type="radio"]{width: 25px;}
-button, input[type="button"], .button{
-	text-decoration: none;
-	cursor: pointer; cursor: hand;
-	height: 40px;
-	min-width: 100px;
-	padding: 0 5px;
-	font-weight: bolder;
+
+.button,button,input[type=submit]{
+border:none;
+font-size:medium;
+display: inline-block;
+margin:2px;
+text-decoration:none;
+background-color: hsl(0, 5%, 80%);
+padding:5px 8px;
+cursor:pointer;
+vertical-align:middle;
+font-weight: 700;
+color: black;
 }
-button:active, input[type="button"]:active{background-color: hsl(0, 5%, 50%);}
+
+.button:active,button:active,input[type=submit]:active{background-color: hsl(0, 5%, 50%);}
+
+input[type="radio"]{width: 25px;}
 

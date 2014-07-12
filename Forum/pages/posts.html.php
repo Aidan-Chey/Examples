@@ -7,7 +7,7 @@ session_start();
 $_SESSION['previousPage'] = $_SERVER['REQUEST_URI'];
 
 /****Connect to Database******/
-	include $_SERVER['DOCUMENT_ROOT'].'/includes/db.inc.php';
+	include $_SERVER['DOCUMENT_ROOT'].'/Forum/includes/db.inc.php';
 
 /****Count Posts under Thread****/
 	try{
@@ -17,7 +17,7 @@ $_SESSION['previousPage'] = $_SERVER['REQUEST_URI'];
 	}
 	catch (PDOException $e){
 		$error = 'Error retrieving post count.';
-		include $_SERVER['DOCUMENT_ROOT'].'/includes/error.html.php';
+		include $_SERVER['DOCUMENT_ROOT'].'/Forum/includes/error.html.php';
 		exit();
 	}
 	foreach ($result as $row){
@@ -37,7 +37,7 @@ $_SESSION['previousPage'] = $_SERVER['REQUEST_URI'];
 	}
 	catch (PDOException $e){
 		$error = 'Error retrieving posts.';
-		include $_SERVER['DOCUMENT_ROOT'].'/includes/error.html.php';
+		include $_SERVER['DOCUMENT_ROOT'].'/Forum/includes/error.html.php';
 		exit();
 	}
 	foreach ($result as $row) {
@@ -50,7 +50,7 @@ $_SESSION['previousPage'] = $_SERVER['REQUEST_URI'];
 	}
 	$iterate = ceil($pageCount / 3);
 
-if(userIsLoggedIn()) include $_SERVER['DOCUMENT_ROOT'].'/includes/button_newPost.inc.php';
+if(userIsLoggedIn()) include $_SERVER['DOCUMENT_ROOT'].'/Forum/includes/button_newPost.inc.php';
 
 foreach($posts as $post):
 if(empty($post['id'])){header("Location: ?Thread=".$_GET['Thread']."&Page=".($_GET['Page']-1));}  ?>
@@ -95,4 +95,4 @@ if(empty($post['id'])){header("Location: ?Thread=".$_GET['Thread']."&Page=".($_G
 		<a href="?Thread=<?php htmlout($_GET['Thread']); echo "&Page=".$pageCount; ?>" title='Last Page'>&#62&#62</a>
 	<?php endif; ?>
 </div>
-<?php if(userIsLoggedIn()) include $_SERVER['DOCUMENT_ROOT'].'/includes/button_newPost.inc.php'; ?>
+<?php if(userIsLoggedIn()) include $_SERVER['DOCUMENT_ROOT'].'/Forum/includes/button_newPost.inc.php'; ?>

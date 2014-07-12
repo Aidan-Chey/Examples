@@ -1,5 +1,5 @@
 <?php 
-include $_SERVER['DOCUMENT_ROOT'].'/includes/db.inc.php';
+include $_SERVER['DOCUMENT_ROOT'].'/Forum/includes/db.inc.php';
 
 /****Retrieve Thread from DB*****/
 try {
@@ -8,7 +8,7 @@ try {
 		Where ID = '.$_POST['id']);
 } catch (PDOException $e){
 	$error = 'Error retrieving thread from database.';
-	include $_SERVER['DOCUMENT_ROOT'].'/includes/error.html.php';
+	include $_SERVER['DOCUMENT_ROOT'].'/Forum/includes/error.html.php';
 	exit();
 }
 foreach ($results as $row) {
@@ -22,7 +22,7 @@ try {
 	Where ID = "'.$thread['creator'].'"');
 } catch (PDOException $e){
 	$error = 'Error retrieving user from database.';
-	include $_SERVER['DOCUMENT_ROOT'].'/includes/error.html.php';
+	include $_SERVER['DOCUMENT_ROOT'].'/Forum/includes/error.html.php';
 	exit();
 }
 foreach ($results as $row) {
@@ -30,7 +30,7 @@ foreach ($results as $row) {
 }
 if($_SESSION['email'] != $user['email'] && !userHasRole('Admin')){
 	$error = 'The thread you have attempted to edit, is not your own.';
-	include $_SERVER['DOCUMENT_ROOT'].'/includes/error.html.php';
+	include $_SERVER['DOCUMENT_ROOT'].'/Forum/includes/error.html.php';
 	exit();
 }
 
@@ -50,7 +50,7 @@ if(isset($_POST['action'])){
 				$results = $pdo->query('SELECT count(*) FROM Threads Where Title = "'.$_POST["title"].'"');
 			} catch (PDOException $e){
 				$error = 'Error retrieving thread title from database.';
-				include $_SERVER['DOCUMENT_ROOT'].'/includes/error.html.php';
+				include $_SERVER['DOCUMENT_ROOT'].'/Forum/includes/error.html.php';
 				exit();
 			}
 			$row = $results->fetch();
@@ -79,7 +79,7 @@ if(isset($_POST['action'])){
 			}
 			catch (PDOException $e){
 				$error = 'Error editing thread.';
-				include $_SERVER['DOCUMENT_ROOT'].'/includes/error.html.php';
+				include $_SERVER['DOCUMENT_ROOT'].'/Forum/includes/error.html.php';
 				exit();
 			}
 			session_start();
@@ -93,7 +93,7 @@ if(isset($_POST['action'])){
 		}
 		catch (PDOException $e){
 			$error = 'Error deleting posts asociated with thread from database.';
-			include $_SERVER['DOCUMENT_ROOT'].'/includes/error.html.php';
+			include $_SERVER['DOCUMENT_ROOT'].'/Forum/includes/error.html.php';
 			exit();
 		}
 		try {
@@ -101,7 +101,7 @@ if(isset($_POST['action'])){
 		}
 		catch (PDOException $e){
 			$error = 'Error deleting thread.';
-			include $_SERVER['DOCUMENT_ROOT'].'/includes/error.html.php';
+			include $_SERVER['DOCUMENT_ROOT'].'/Forum/includes/error.html.php';
 			exit();
 		}
 		header("Location: /?Forums&Messages=".urlencode(' Thread deleted!'));

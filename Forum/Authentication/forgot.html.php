@@ -2,7 +2,7 @@
 if (!empty($_POST['action'])) {
 	if($_POST['action'] == 'Reset'){
 		/****Connect to Database******/
-		include $_SERVER['DOCUMENT_ROOT'].'/includes/db.inc.php';
+		include $_SERVER['DOCUMENT_ROOT'].'/Forum/includes/db.inc.php';
 
 		/****Validate Email******/
 		if(empty($_POST['email'])){
@@ -25,7 +25,7 @@ if (!empty($_POST['action'])) {
 			}
 			catch (PDOException $e){
 				$error = 'Error searching for Email.';
-				include $_SERVER['DOCUMENT_ROOT'].'/includes/error.html.php';
+				include $_SERVER['DOCUMENT_ROOT'].'/Forum/includes/error.html.php';
 				exit();
 			}
 			$row = $s->fetch();
@@ -54,7 +54,7 @@ if (!empty($_POST['action'])) {
 			}
 			catch (PDOException $e){
 				$error = 'Error setting user password.';
-				include $_SERVER['DOCUMENT_ROOT'].'/includes/error.html.php';
+				include $_SERVER['DOCUMENT_ROOT'].'/Forum/includes/error.html.php';
 				exit();
 			}
 			session_start();

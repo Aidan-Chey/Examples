@@ -3,7 +3,7 @@ session_start();
 $_SESSION['previousPage'] = $_SERVER['REQUEST_URI'];
 
 /****Connect to Database******/
-include $_SERVER['DOCUMENT_ROOT'].'/includes/db.inc.php';
+include $_SERVER['DOCUMENT_ROOT'].'/Forum/includes/db.inc.php';
 
 /****Retrieve most recent Threads******/
 try{
@@ -15,7 +15,7 @@ try{
 }
 catch (PDOException $e){
 	$error = 'Error retrieving Threads.';
-	include $_SERVER['DOCUMENT_ROOT'].'/includes/error.html.php';
+	include $_SERVER['DOCUMENT_ROOT'].'/Forum/includes/error.html.php';
 	exit();
 }
 foreach ($result as $row) {

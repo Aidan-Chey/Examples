@@ -10,7 +10,7 @@ function userIsLoggedIn(){
 
 function databaseContainsUser($email, $password){
 	/****Connect to Database******/
-	include  $_SERVER['DOCUMENT_ROOT'].'/includes/db.inc.php';
+	include  $_SERVER['DOCUMENT_ROOT'].'/Forum/includes/db.inc.php';
 
 	/****Compare _SESSIONed Email and Password******/
 	try{
@@ -22,7 +22,7 @@ function databaseContainsUser($email, $password){
 	}
 	catch (PDOException $e){
 		$error = 'Error searching for User.';
-		include  $_SERVER['DOCUMENT_ROOT'].'/includes/error.html.php';
+		include  $_SERVER['DOCUMENT_ROOT'].'/Forum/includes/error.html.php';
 		exit();
 	}
 	$row = $s->fetch();
@@ -35,7 +35,7 @@ function databaseContainsUser($email, $password){
 }
 function userHasRole($role){
 	/****Connect to Database******/
-	include $_SERVER['DOCUMENT_ROOT'].'/includes/db.inc.php';
+	include $_SERVER['DOCUMENT_ROOT'].'/Forum/includes/db.inc.php';
 
 	if(empty($_SESSION['email'])){$email = null;}
 	else{$email = $_SESSION['email'];}
@@ -50,7 +50,7 @@ function userHasRole($role){
 	}
 	catch (PDOException $e){
 		$error = 'Error searching for author roles.';
-		include  $_SERVER['DOCUMENT_ROOT'].'/includes/error.html.php';
+		include  $_SERVER['DOCUMENT_ROOT'].'/Forum/includes/error.html.php';
 		exit();
 	}
 	$row = $s->fetch();

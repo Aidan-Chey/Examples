@@ -31,7 +31,7 @@ if(isset($_POST['register'])){
 	/****If no errors******/
 	if(empty($emailError) && empty($passError) && empty($nameError)){
 		/****Connect to Database******/
-		include $_SERVER['DOCUMENT_ROOT'].'/includes/db.inc.php';
+		include $_SERVER['DOCUMENT_ROOT'].'/Forum/includes/db.inc.php';
 
 		/****Insert Information into DB******/
 		try{
@@ -44,7 +44,7 @@ if(isset($_POST['register'])){
 		}
 		catch (PDOException $e){
 			$error = 'Error adding submitted user. ';
-			include $_SERVER['DOCUMENT_ROOT'].'/includes/error.html.php';
+			include $_SERVER['DOCUMENT_ROOT'].'/Forum/includes/error.html.php';
 			exit();
 		}
 
@@ -60,7 +60,7 @@ if(isset($_POST['register'])){
 			}
 			catch (PDOException $e){
 				$error = 'Error setting user password. ';
-				include $_SERVER['DOCUMENT_ROOT'].'/includes/error.html.php';
+				include $_SERVER['DOCUMENT_ROOT'].'/Forum/includes/error.html.php';
 				exit();
 			}
 		}

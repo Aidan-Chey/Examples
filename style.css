@@ -1,18 +1,24 @@
-body *{
+body{
 	color: black;
-	background-color: hsl(0, 50%, 0%);
-	font-style: tahoma, sans-serif;
+	background-color: hsl(0, 0%, 85%);
+	font: medium tahoma,sans-serif;
 }
-
 h1, p, section, a{
 	margin: 1em;
 	text-align: center;
 }
-
+section{
+	margin-top: 2em;
+}
 .button{
+	color: black;
 	cursor: pointer;
 	text-decoration: none;
 	padding: 5px 8px;
-	background-color: hsla(0, 100%, 100%, .6);
-	border: 1px solid hsla(0, 100%, 100%, .2);
+	background-color: hsla(0, 100%, 100%, .3);
+	border: 1px solid hsla(0, 100%, 100%, .5);
+}
+.button:active{
+	background-color: hsla(0, 100%, 100%, .5);
+	border: 1px solid hsla(0, 100%, 100%, .7);
 }

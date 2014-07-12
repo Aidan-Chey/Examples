@@ -1,13 +1,13 @@
 <?php 
 // Retrive section list
-include $_SERVER['DOCUMENT_ROOT'].'/includes/db.inc.php';
+include $_SERVER['DOCUMENT_ROOT'].'/Forum/includes/db.inc.php';
 
 try{
 	$result = $pdo->query('SELECT ID, Name, Description FROM Sections');
 }
 catch (PDOException $e){
 	$error = 'Error fetching sections from the database!';
-	include $_SERVER['DOCUMENT_ROOT'].'/includes/error.html.php';
+	include $_SERVER['DOCUMENT_ROOT'].'/Forum/includes/error.html.php';
 	exit();
 }
 foreach ($result as $row){
@@ -62,7 +62,7 @@ if(isset($_POST['action'])){
 			}
 			catch (PDOException $e){
 				$error = 'Error editing section.';
-				include $_SERVER['DOCUMENT_ROOT'].'/includes/error.html.php';
+				include $_SERVER['DOCUMENT_ROOT'].'/Forum/includes/error.html.php';
 				exit();
 			}
 			header('Location: /Admin?Sections&Messages='.urlencode(' Section Edited!'));
@@ -79,7 +79,7 @@ if(isset($_POST['action'])){
 		}
 		catch (PDOException $e){
 			$error = 'Error retrieving Topic IDs.';
-			include $_SERVER['DOCUMENT_ROOT'].'/includes/error.html.php';
+			include $_SERVER['DOCUMENT_ROOT'].'/Forum/includes/error.html.php';
 			exit();
 		}
 		foreach ($result as $row) {
@@ -91,7 +91,7 @@ if(isset($_POST['action'])){
 			}
 			catch (PDOException $e){
 				$error = 'Error retrieving Thread IDs.';
-				include $_SERVER['DOCUMENT_ROOT'].'/includes/error.html.php';
+				include $_SERVER['DOCUMENT_ROOT'].'/Forum/includes/error.html.php';
 				exit();
 			}
 			foreach ($result as $row) {
@@ -104,7 +104,7 @@ if(isset($_POST['action'])){
 			}
 			catch (PDOException $e){
 				$error = 'Error deleting Posts.';
-				include $_SERVER['DOCUMENT_ROOT'].'/includes/error.html.php';
+				include $_SERVER['DOCUMENT_ROOT'].'/Forum/includes/error.html.php';
 				exit();
 			}
 		}
@@ -114,7 +114,7 @@ if(isset($_POST['action'])){
 			}
 			catch (PDOException $e){
 				$error = 'Error deleting Threads.';
-				include $_SERVER['DOCUMENT_ROOT'].'/includes/error.html.php';
+				include $_SERVER['DOCUMENT_ROOT'].'/Forum/includes/error.html.php';
 				exit();
 			}
 		}
@@ -123,7 +123,7 @@ if(isset($_POST['action'])){
 		}
 		catch (PDOException $e){
 			$error = 'Error deleting Topics.';
-			include $_SERVER['DOCUMENT_ROOT'].'/includes/error.html.php';
+			include $_SERVER['DOCUMENT_ROOT'].'/Forum/includes/error.html.php';
 			exit();
 		}
 		try{
@@ -131,7 +131,7 @@ if(isset($_POST['action'])){
 		}
 		catch (PDOException $e){
 			$error = 'Error deleting Section.';
-			include $_SERVER['DOCUMENT_ROOT'].'/includes/error.html.php';
+			include $_SERVER['DOCUMENT_ROOT'].'/Forum/includes/error.html.php';
 			exit();
 		}
 		header('Location: /Admin?Sections&Messages='.urlencode(' Section Deleted!'));
@@ -175,7 +175,7 @@ if(isset($_POST['action'])){
 			}
 			catch (PDOException $e){
 				$error = 'Error editing section.';
-				include $_SERVER['DOCUMENT_ROOT'].'/includes/error.html.php';
+				include $_SERVER['DOCUMENT_ROOT'].'/Forum/includes/error.html.php';
 				exit();
 			}
 			header('Location: /Admin?Sections&Messages='.urlencode(' Section Added!'));

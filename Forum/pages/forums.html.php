@@ -3,7 +3,7 @@ session_start();
 $_SESSION['previousPage'] = $_SERVER['REQUEST_URI'];
 
 /****Connect to Database******/
-include $_SERVER['DOCUMENT_ROOT'].'/includes/db.inc.php';
+include $_SERVER['DOCUMENT_ROOT'].'/Forum/includes/db.inc.php';
 
 /****Retrieve List of Sections******/
 try{
@@ -13,7 +13,7 @@ try{
 }
 catch (PDOException $e){
 	$error = 'Error retrieving Sections.'. $e->getMessage();
-	include $_SERVER['DOCUMENT_ROOT'].'/includes/error.html.php';
+	include $_SERVER['DOCUMENT_ROOT'].'/Forum/includes/error.html.php';
 	exit();
 }
 foreach ($sectionResult as $sectionRow){
@@ -29,7 +29,7 @@ try{
 }
 catch (PDOException $e){
 	$error = 'Error retrieving Topics.'.$e->getMessage();
-	include $_SERVER['DOCUMENT_ROOT'].'/includes/error.html.php';
+	include $_SERVER['DOCUMENT_ROOT'].'/Forum/includes/error.html.php';
 	exit();
 }
 foreach ($topicResult as $topicRow){

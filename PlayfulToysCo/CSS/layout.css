@@ -1,4 +1,6 @@
-body{font-size: 14px;
+body{
+	min-height: 100vh;
+	font-size: 14px;
 }
 #page_head{height: 6em;
 }
@@ -11,8 +13,6 @@ section{padding: 6.2em 0 6em 0;
 article{margin: 0 auto;
 	padding: 1.5em 0;
 }
-#feature{ display: none;
-}
 #logo{ 
 	display: block;
 }
@@ -24,6 +24,10 @@ form{ padding-top: 3em;
 	padding-top: 1em;
 }
 #page_head, #page_foot, nav{ text-align: center;
+}
+#page_foot{
+	position: absolute;
+	bottom: 0;
 }
 @media(max-width: 24em){
 	#page_head{ height: 7.5em;

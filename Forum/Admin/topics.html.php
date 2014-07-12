@@ -1,5 +1,5 @@
 <?php 
-include $_SERVER['DOCUMENT_ROOT'].'/includes/db.inc.php';
+include $_SERVER['DOCUMENT_ROOT'].'/Forum/includes/db.inc.php';
 
 session_start();
 $_SESSION['previousPage'] = $_SERVER['REQUEST_URI'];
@@ -10,7 +10,7 @@ try{
 }
 catch (PDOException $e){
 	$error = 'Error fetching topics from the database!';
-	include $_SERVER['DOCUMENT_ROOT'].'/includes/error.html.php';
+	include $_SERVER['DOCUMENT_ROOT'].'/Forum/includes/error.html.php';
 	exit();
 }
 foreach ($result as $row){
@@ -28,7 +28,7 @@ try{
 }
 catch (PDOException $e){
 	$error = 'Error fetching sections from the database!';
-	include $_SERVER['DOCUMENT_ROOT'].'/includes/error.html.php';
+	include $_SERVER['DOCUMENT_ROOT'].'/Forum/includes/error.html.php';
 	exit();
 }
 foreach ($result as $row){
@@ -86,7 +86,7 @@ if(isset($_POST['action'])){
 			}
 			catch (PDOException $e){
 				$error = 'Error editing topic.';
-				include $_SERVER['DOCUMENT_ROOT'].'/includes/error.html.php';
+				include $_SERVER['DOCUMENT_ROOT'].'/Forum/includes/error.html.php';
 				exit();
 			}
 			header('Location: /Admin?Topics&Messages='.urlencode(' Topic Edited!'));
@@ -103,7 +103,7 @@ if(isset($_POST['action'])){
 		}
 		catch (PDOException $e){
 			$error = 'Error retrieving Thread IDs.';
-			include $_SERVER['DOCUMENT_ROOT'].'/includes/error.html.php';
+			include $_SERVER['DOCUMENT_ROOT'].'/Forum/includes/error.html.php';
 			exit();
 		}
 		foreach ($result as $row) {
@@ -115,7 +115,7 @@ if(isset($_POST['action'])){
 			}
 			catch (PDOException $e){
 				$error = 'Error deleting Posts.';
-				include $_SERVER['DOCUMENT_ROOT'].'/includes/error.html.php';
+				include $_SERVER['DOCUMENT_ROOT'].'/Forum/includes/error.html.php';
 				exit();
 			}
 		}
@@ -124,7 +124,7 @@ if(isset($_POST['action'])){
 		}
 		catch (PDOException $e){
 			$error = 'Error deleting Threads.';
-			include $_SERVER['DOCUMENT_ROOT'].'/includes/error.html.php';
+			include $_SERVER['DOCUMENT_ROOT'].'/Forum/includes/error.html.php';
 			exit();
 		}
 		try{
@@ -132,7 +132,7 @@ if(isset($_POST['action'])){
 		}
 		catch (PDOException $e){
 			$error = 'Error deleting topic.';
-			include $_SERVER['DOCUMENT_ROOT'].'/includes/error.html.php';
+			include $_SERVER['DOCUMENT_ROOT'].'/Forum/includes/error.html.php';
 			exit();
 		}
 		header('Location: /Admin?Topics&Messages='.urlencode(' Topic Deleted!'));
@@ -184,7 +184,7 @@ if(isset($_POST['action'])){
 			}
 			catch (PDOException $e){
 				$error = 'Error adding topic.';
-				include $_SERVER['DOCUMENT_ROOT'].'/includes/error.html.php';
+				include $_SERVER['DOCUMENT_ROOT'].'/Forum/includes/error.html.php';
 				exit();
 			}
 			header('Location: /Admin?Topics&Messages='.urlencode(' Topic Added!'));

@@ -16,7 +16,7 @@ if(!empty($_POST["action"]) && $_POST["action"] == "createPost" && userIsLoggedI
 	/****If no errors******/
 	if(empty($contentError) && empty($error)){
 		/****Connect to Database******/
-		include $_SERVER['DOCUMENT_ROOT'].'/includes/db.inc.php';
+		include $_SERVER['DOCUMENT_ROOT'].'/Forum/includes/db.inc.php';
 
 		/****Select User Information******/
 		try {

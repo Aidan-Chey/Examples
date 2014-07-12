@@ -43,7 +43,7 @@ $_SESSION['previousPage'] = $_SERVER['REQUEST_URI'];
  ?>
 <h2><?php htmlout($topics['name']); ?></h2>
  
-<?php if(userIsLoggedIn()) include $_SERVER['DOCUMENT_ROOT'].'/includes/button_newThread.inc.php';
+<?php if(userIsLoggedIn()) include $_SERVER['DOCUMENT_ROOT'].'/Forum/includes/button_newThread.inc.php';
 
 foreach ($threads as $thread): ?>
 <div class="Seperate thread">
@@ -54,4 +54,4 @@ foreach ($threads as $thread): ?>
 	</footer>
 </div>
 <?php endforeach;
-if(userIsLoggedIn()) include $_SERVER['DOCUMENT_ROOT'].'/includes/button_newThread.inc.php'; ?>
+if(userIsLoggedIn()) include $_SERVER['DOCUMENT_ROOT'].'/Forum/includes/button_newThread.inc.php'; ?>

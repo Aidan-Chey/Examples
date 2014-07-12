@@ -1,4 +1,4 @@
-<?php include $_SERVER['DOCUMENT_ROOT'].'/includes/db.inc.php';
+<?php include $_SERVER['DOCUMENT_ROOT'].'/Forum/includes/db.inc.php';
 
 session_start();
 $_SESSION['previousPage'] = $_SERVER['REQUEST_URI'];
@@ -9,7 +9,7 @@ try{
 }
 catch (PDOException $e){
 	$error = 'Error fetching users from the database!';
-	include $_SERVER['DOCUMENT_ROOT'].'/includes/error.html.php';
+	include $_SERVER['DOCUMENT_ROOT'].'/Forum/includes/error.html.php';
 	exit();
 }
 foreach ($result as $row){
@@ -22,7 +22,7 @@ try {
 } 
 catch (Exception $e) {
 	$error = 'Error fetching roles from the database!';
-	include $_SERVER['DOCUMENT_ROOT'].'/includes/error.html.php';
+	include $_SERVER['DOCUMENT_ROOT'].'/Forum/includes/error.html.php';
 	exit();
 }
 foreach ($result as $row) {
@@ -101,7 +101,7 @@ if(isset($_POST['action'])){
 			}
 			catch (PDOException $e){
 				$error = 'Error editing user.';
-				include $_SERVER['DOCUMENT_ROOT'].'/includes/error.html.php';
+				include $_SERVER['DOCUMENT_ROOT'].'/Forum/includes/error.html.php';
 				exit();
 			}
 			header('Location: /Admin?Users&Messages='.urlencode(' User Edited!'));
@@ -114,7 +114,7 @@ if(isset($_POST['action'])){
 		}
 		catch (PDOException $e){
 			$error = 'Error deleting user.';
-			include $_SERVER['DOCUMENT_ROOT'].'/includes/error.html.php';
+			include $_SERVER['DOCUMENT_ROOT'].'/Forum/includes/error.html.php';
 			exit();
 		}
 		header('Location: /Admin?Users&Messages='.urlencode(' User Deleted!'));		

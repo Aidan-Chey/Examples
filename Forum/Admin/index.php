@@ -1,13 +1,13 @@
 <?php 
 /****addons to assist with injection******/
-include $_SERVER['DOCUMENT_ROOT'].'/includes/magicQuotes.inc.php';
-include $_SERVER['DOCUMENT_ROOT'].'/includes/helpers.inc.php';
+include $_SERVER['DOCUMENT_ROOT'].'/Forum/includes/magicQuotes.inc.php';
+include $_SERVER['DOCUMENT_ROOT'].'/Forum/includes/helpers.inc.php';
 
 /****functions for access and logging in****/
-require_once $_SERVER['DOCUMENT_ROOT'].'/includes/access.inc.php';
+require_once $_SERVER['DOCUMENT_ROOT'].'/Forum/includes/access.inc.php';
 
 /****Top section of master page******/
-include $_SERVER['DOCUMENT_ROOT'].'/includes/head.html.php';
+include $_SERVER['DOCUMENT_ROOT'].'/Forum/includes/head.html.php';
 
 if(isset($_GET["Thread"]) && userIsLoggedIn()){
 	include 'editThread.html.php';
@@ -32,4 +32,4 @@ else{
 }
 
 /****Bottom section of master page******/
-include $_SERVER['DOCUMENT_ROOT'].'/includes/foot.html.php';
+include $_SERVER['DOCUMENT_ROOT'].'/Forum/includes/foot.html.php';

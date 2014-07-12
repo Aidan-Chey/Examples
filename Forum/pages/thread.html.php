@@ -3,7 +3,7 @@ session_start();
 $_SESSION['previousPage'] = $_SERVER['REQUEST_URI'];
 
 /****Connect to Database******/
-	include $_SERVER['DOCUMENT_ROOT'].'/includes/db.inc.php';
+	include $_SERVER['DOCUMENT_ROOT'].'/Forum/includes/db.inc.php';
 
 /****Retrieve Thread******/
 	try{
@@ -15,7 +15,7 @@ $_SESSION['previousPage'] = $_SERVER['REQUEST_URI'];
 	}
 	catch (PDOException $e){
 		$error = 'Error retrieving Thread.';
-		include $_SERVER['DOCUMENT_ROOT'].'/includes/error.html.php';
+		include $_SERVER['DOCUMENT_ROOT'].'/Forum/includes/error.html.php';
 		exit();
 	}
 	foreach ($result as $row) {
@@ -36,7 +36,7 @@ $_SESSION['previousPage'] = $_SERVER['REQUEST_URI'];
 	}
 	catch (PDOException $e){
 		$error = 'Error retrieving Topic.';
-		include $_SERVER['DOCUMENT_ROOT'].'/includes/error.html.php';
+		include $_SERVER['DOCUMENT_ROOT'].'/Forum/includes/error.html.php';
 		exit();
 	}
 	foreach ($result as $row) {
@@ -51,7 +51,7 @@ $_SESSION['previousPage'] = $_SERVER['REQUEST_URI'];
 	}
 	catch (PDOException $e){
 		$error = 'Error retrieving post count.';
-		include $_SERVER['DOCUMENT_ROOT'].'/includes/error.html.php';
+		include $_SERVER['DOCUMENT_ROOT'].'/Forum/includes/error.html.php';
 		exit();
 	}
 	foreach ($result as $row){
@@ -70,7 +70,7 @@ $_SESSION['previousPage'] = $_SERVER['REQUEST_URI'];
 	}
 	catch (PDOException $e){
 		$error = 'Error retrieving posts.';
-		include $_SERVER['DOCUMENT_ROOT'].'/includes/error.html.php';
+		include $_SERVER['DOCUMENT_ROOT'].'/Forum/includes/error.html.php';
 		exit();
 	}
 	foreach ($result as $row) {
@@ -83,7 +83,7 @@ $_SESSION['previousPage'] = $_SERVER['REQUEST_URI'];
 	}
 	$iterate = ceil($pageCount / 3);
 
-if(userIsLoggedIn()) include $_SERVER['DOCUMENT_ROOT'].'/includes/button_newPost.inc.php'; ?>
+if(userIsLoggedIn()) include $_SERVER['DOCUMENT_ROOT'].'/Forum/includes/button_newPost.inc.php'; ?>
 <div>Topic: <a href="?Topic=<?php echo $thread['topic'] ?>"><?php htmlout($topic); ?></a></div>
 <div class="Seperate">
 	<h2><?php htmlout($thread['title']); ?></h2>
@@ -135,4 +135,4 @@ if($postCount > $postsPerPage): ?>
 		<?php endif; ?>
 	</div>
 <?php endif;
-if(userIsLoggedIn()) include $_SERVER['DOCUMENT_ROOT'].'/includes/button_newPost.inc.php'; ?>
+if(userIsLoggedIn()) include $_SERVER['DOCUMENT_ROOT'].'/Forum/includes/button_newPost.inc.php'; ?>

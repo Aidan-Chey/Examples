@@ -53,6 +53,6 @@
 	<div class="center">
 		<button name="submit">SUBMIT</button>
 		<button type="reset">RESET</button>
-		<a class="button" href="/">Back</a>
+		<a class="button" href="/">BACK</a>
 	</div>
 </form>

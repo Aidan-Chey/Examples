@@ -1,16 +1,16 @@
 <?php
 /****Connect to Database******/
-	include $_SERVER['DOCUMENT_ROOT'].'/includes/db.inc.php';
+	include $_SERVER['DOCUMENT_ROOT'].'/Forum/includes/db.inc.php';
 
 /****When Logging in****/
 session_start();
 if(isset($_POST['login'])){
-	include $_SERVER['DOCUMENT_ROOT'].'/Authentication/login.php';
+	include $_SERVER['DOCUMENT_ROOT'].'/Forum/Authentication/login.php';
 }
 
 /****When Logging out****/
 if(isset($_POST['logout'])){
-	include $_SERVER['DOCUMENT_ROOT'].'/Authentication/logout.php';
+	include $_SERVER['DOCUMENT_ROOT'].'/Forum/Authentication/logout.php';
 }
 
 if(userIsLoggedIn()){
@@ -19,7 +19,7 @@ if(userIsLoggedIn()){
 	}
 	catch (PDOException $e){
 		$error = 'Error fetching user name from the database!';
-		include $_SERVER['DOCUMENT_ROOT'].'/includes/error.html.php';
+		include $_SERVER['DOCUMENT_ROOT'].'/Forum/includes/error.html.php';
 		exit();
 	}
 	foreach ($result as $row){
@@ -36,8 +36,8 @@ if(userIsLoggedIn()){
 	<meta name="Author" content="Aidan Dunn">
 	<meta name="Description" content="Php Forum built for Assessment 2">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link rel="stylesheet" type="text/css" href="/css/normalize.css"/>
-	<link rel="stylesheet" type="text/css" href="/css/base.css"/>
+	<link rel="stylesheet" type="text/css" href="/Forum/css/normalize.css"/>
+	<link rel="stylesheet" type="text/css" href="/Forum/css/base.css"/>
 </head>
 <body onload="init();">
 <h1>Forum</h1>
@@ -58,7 +58,7 @@ if(userIsLoggedIn()){
 		<?php if(userIsLoggedIn()): ?>
 			<p>You are already logged in!</p>
 		<?php else: ?>
-			Don't have an account? <a class="button" href="/Authentication?Register">Register?</a>
+			Don't have an account? <a class="button" href="/Forum/Authentication/?Register">Register?</a>
 			<form action="" method="post">
 				<p>
 					<label for="email">Email: </label><br>
@@ -76,7 +76,7 @@ if(userIsLoggedIn()){
 				<label for="remember">Remember Login?</label>
 				<br>
 				<button>Login</button>
-				<a class="button" href="/Authentication?Forgot">Forgot Password?</a>
+				<a class="button" href="/Forum/Authentication/?Forgot">Forgot Password?</a>
 				<br>
 				<?php echo "Attempts Remaining: ".(5 - $_COOKIE['logCount']); ?>
 			</form>
@@ -85,8 +85,8 @@ if(userIsLoggedIn()){
 	<label for="login" id="overlay"></label>
 <?php endif; ?>
 <nav>
-	<a href="/?Activity">Activity</a>
-	<a href="/?Forums">Forums</a>
+	<a href="/Forum/?Activity">Activity</a>
+	<a href="/Forum/?Forums">Forums</a>
 	<?php if(userIsLoggedIn()) echo "<a href='/?Users'>User List</a>" ?>
 	<span>
 		Messages:<span class="error">

@@ -8,7 +8,7 @@ try {
 		Where ID = "'.$_POST['id'].'"');
 } catch (PDOException $e){
 	$error = 'Error retrieving post from database.';
-	include $_SERVER['DOCUMENT_ROOT'].'/includes/error.html.php';
+	include $_SERVER['DOCUMENT_ROOT'].'/Forum/includes/error.html.php';
 	exit();
 }
 foreach ($results as $row) {
@@ -22,7 +22,7 @@ try {
 	Where ID = "'.$post['creator'].'"');
 } catch (PDOException $e){
 	$error = 'Error retrieving user from database.';
-	include $_SERVER['DOCUMENT_ROOT'].'/includes/error.html.php';
+	include $_SERVER['DOCUMENT_ROOT'].'/Forum/includes/error.html.php';
 	exit();
 }
 foreach ($results as $row) {
@@ -30,7 +30,7 @@ foreach ($results as $row) {
 }
 if($_SESSION['email'] != $user['email'] && !userHasRole('Admin')){
 	$error = 'The post you have attempted to edit, is not your own.';
-	include $_SERVER['DOCUMENT_ROOT'].'/includes/error.html.php';
+	include $_SERVER['DOCUMENT_ROOT'].'/Forum/includes/error.html.php';
 	exit();
 }
 
@@ -58,7 +58,7 @@ if(isset($_POST['action'])){
 			}
 			catch (PDOException $e){
 				$error = 'Error editing post.';
-				include $_SERVER['DOCUMENT_ROOT'].'/includes/error.html.php';
+				include $_SERVER['DOCUMENT_ROOT'].'/Forum/includes/error.html.php';
 				exit();
 			}
 			session_start();
@@ -72,7 +72,7 @@ if(isset($_POST['action'])){
 		}
 		catch (PDOException $e){
 			$error = 'Error deleting thread.';
-			include $_SERVER['DOCUMENT_ROOT'].'/includes/error.html.php';
+			include $_SERVER['DOCUMENT_ROOT'].'/Forum/includes/error.html.php';
 			exit();
 		}
 		session_start();
