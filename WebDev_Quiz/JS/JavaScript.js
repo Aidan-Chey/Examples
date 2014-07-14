@@ -1,6 +1,6 @@
 var firstName = "";
 
-//***********************************Login**************************************************
+//Login
 
 function checkLogin(){
 	var nCorrect = 0;
@@ -49,7 +49,7 @@ function pageSwitch(){
 	document.getElementById('quiz').className = 'show';
 }
 
-//***********************************Quizz**************************************************
+//Quizz
 
 //Activtes on Submission
 function submitQuiz(){

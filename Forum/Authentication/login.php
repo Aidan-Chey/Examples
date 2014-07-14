@@ -1,14 +1,14 @@
 <?php 
-/****Login Attempts******/
+//Login Attempts
 if (isset($_POST['login'])){
 
-	/****Login Count****/
+	//Login Count
 	if(isset($_COOKIE['logCount']) && $_COOKIE['logCount'] > 4){
 		header("Location: ".$_SESSION['previousPage']."&Messages=".urlencode('Too many login attempts, try agian another time!'));
 		exit();
 	}
 
-	/*****Validate Email*****/
+	//*Validate Email*
 	if(empty($_POST['email'])){
 		$emailError .= 'Please enter a email';
 	}
@@ -19,7 +19,7 @@ if (isset($_POST['login'])){
 		$emailError .= 'Please enter a valid email';
 	}
 
-	/****Validate Password******/
+	//Validate Password
 	if(empty($_POST['password'])){
 		$passError .= 'Please enter a password';
 	}
@@ -27,10 +27,10 @@ if (isset($_POST['login'])){
 		$passError .= 'Please enter a shorter password (max 100 characters)';
 	}
 
-	/****Run if no errors******/
+	//Run if no errors
 	if(empty($emailError) && empty($passError) && empty($loginError)){
 
-		/****Check _POSTed info agianst database******/
+		//Check _POSTed info agianst database
 		$password = md5($_POST['password'] . 'f0rum');
 		if (databaseContainsUser($_POST['email'], $password)){
 			if(isset($_POST['remember'])) {
@@ -42,7 +42,7 @@ if (isset($_POST['login'])){
 			setcookie('logCount', "", time() -3600);
 			$messages .= 'Now logged in!';
 		}
-		/****If not in Database, +1 login count, unset $_session and error******/
+		//If not in Database, +1 login count, unset $_session and error
 		else{
 			if(!isset($_COOKIE['logCount'])){
 				$_COOKIE['logCount'] = 1;

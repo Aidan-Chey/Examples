@@ -1,6 +1,6 @@
 <?php 
 if(isset($_POST["action"]) && $_POST["action"] == "createThread" && userIsLoggedIn()){
-	/****Validate Title******/
+	//Validate Title
 	if(empty($_POST['title'])){
 		$titleError .= "Please enter a title.";
 	}
@@ -8,7 +8,7 @@ if(isset($_POST["action"]) && $_POST["action"] == "createThread" && userIsLogged
 		$titleError .= "Please enter a shorter title (max 50 characters).";
 	}
 
-	/****Validate Content******/
+	//Validate Content
 	if(empty($_POST['content'])){
 		$contentError .= "Please enter content.";
 	}
@@ -16,17 +16,17 @@ if(isset($_POST["action"]) && $_POST["action"] == "createThread" && userIsLogged
 		$contentError .= "Please enter a shorter content (max 10,000)";
 	}
 
-	/****Validate Topic******/
+	//Validate Topic
 	if(empty($_POST['topic'])){
 		$error .= "No topic was included, go back to the forums page and select the create thread button under the topic you wish to create a thread under.";
 	}
 
-	/****If no errors******/
+	//If no errors
 	if(empty($titleError) && empty($contentError) && empty($error)){
-		/****Connect to Database******/
-		include $_SERVER['DOCUMENT_ROOT'].'includes/db.inc.php';
+		//Connect to Database
+		include $_SERVER['DOCUMENT_ROOT'].'/Forum/includes/db.inc.php';
 
-		/****Select User Information******/
+		//Select User Information
 		try {
 			$Result = $pdo->query('SELECT Users.ID as uID
 			FROM Users
@@ -35,14 +35,14 @@ if(isset($_POST["action"]) && $_POST["action"] == "createThread" && userIsLogged
 		} 
 		catch (PDOException $e) {
 			$error .= 'Error retrieving user information.';
-			include $_SERVER['DOCUMENT_ROOT'].'includes/error.html.php';
+			include $_SERVER['DOCUMENT_ROOT'].'/Forum/includes/error.html.php';
 			exit();
 		}
 		foreach($Result as $row){
 			$userInfo = array('id' => $row['uID']);
 		}
 
-		/****Insert Information into DB******/
+		//Insert Information into DB
 		try{
 			$sql = 'INSERT INTO Threads SET Threads.Title = :title, 
 			Threads.Contents = :content, 
@@ -57,7 +57,7 @@ if(isset($_POST["action"]) && $_POST["action"] == "createThread" && userIsLogged
 		}
 		catch (PDOException $e){
 			$error .= 'Error inserting submitted thread.';
-			include $_SERVER['DOCUMENT_ROOT'].'includes/error.html.php';
+			include $_SERVER['DOCUMENT_ROOT'].'/Forum/includes/error.html.php';
 			exit();
 		}
 		session_start();

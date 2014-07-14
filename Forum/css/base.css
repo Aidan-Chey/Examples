@@ -4,17 +4,16 @@ background-color:hsla(0,0%,0%,.4)}
 ::-webkit-scrollbar,::-webkit-scrollbar-corner {
 background-color:hsla(0,0%,0%,0)}
 
-html{
+body{
 color:hsl(0,0%,85%);
 background-color:hsl(90,90%,20%);
-font-size: medium}
+font-size: 110%;
+font-family: tahoma, sans-serif;
+margin:0 1em}
 
 div{
 position:relative;
 margin-bottom:10px}
-
-body{
-margin:0 1em}
 
 .Seperate{
 background-color:hsla(0,0%,0%,.2);
@@ -101,21 +100,18 @@ resize:none}
 
 .button,button,input[type=button],input[type=submit]{
 color:hsl(0,0%,85%);
+font-size:100%;
+cursor:pointer;
+padding:2px 4px;
+text-decoration:none;
+vertical-align: middle;
 border:2px solid hsl(0,0%,50%);
 border-radius:10px;
 background-color:hsla(0,0%,0%,.2);
 line-height:1em}
 
 .button:active,button:active,input[type=button]:active,input[type=submit]:active{
-border:2px solid hsl(0,0%,75%);
-border-radius:15px}
-
-.button{
-text-decoration:none;
-font-size:100%;
-display:inline-block;
-cursor:pointer;
-padding:2px 4px}
+border:2px solid hsl(0,0%,75%);}
 
 td{
 padding:4px}
@@ -202,6 +198,12 @@ width:100%;
 height:100vh;
 z-index:10}
 
+.thread>:not(footer),li>*{
+display:inline-block}
+
+.post_browse,form{
+margin-bottom:5px}
+
 .login_hide+a,.login_hide,.logout_hide,.logout_hide+form,.hide+*,.hide,.section_hide,.section_hide+*{
 display:none}
 
@@ -214,14 +216,5 @@ display:inline}
 
 .section_hide:checked+*,.login_hide:checked~#login_form,.login_hide:checked~#overlay{
 display:block}
-
-.thread>:not(footer),li>*{
-display:inline-block}
-
-.post_browse,form{
-margin-bottom:5px}
-
-body>div[style = "text-align: center;"],#window-resizer-tooltip,body>p:last-child{
-display:none!important}
 
 @media(min-width:40em){html{font-size:100%;}}

@@ -1,6 +1,6 @@
 <?php
 
-/****Login Check******/
+//Login Check
 function userIsLoggedIn(){
 	session_start();
 	if (isset($_SESSION['loggedIn'])){
@@ -9,10 +9,10 @@ function userIsLoggedIn(){
 }
 
 function databaseContainsUser($email, $password){
-	/****Connect to Database******/
+	//Connect to Database
 	include  $_SERVER['DOCUMENT_ROOT'].'/Forum/includes/db.inc.php';
 
-	/****Compare _SESSIONed Email and Password******/
+	//Compare _SESSIONed Email and Password
 	try{
 		$sql = "SELECT COUNT(*) FROM Users WHERE Email = :email AND Password = :password";
 		$s = $pdo->prepare($sql);
@@ -34,13 +34,13 @@ function databaseContainsUser($email, $password){
 	}
 }
 function userHasRole($role){
-	/****Connect to Database******/
+	//Connect to Database
 	include $_SERVER['DOCUMENT_ROOT'].'/Forum/includes/db.inc.php';
 
 	if(empty($_SESSION['email'])){$email = null;}
 	else{$email = $_SESSION['email'];}
 
-	/****Check User has Role******/
+	//Check User has Role
 	try{
 		$sql = "SELECT COUNT(*) FROM Users INNER JOIN UsersRole ON Role = UsersRole.Name WHERE Email = :email AND UsersRole.Name = :roleId";
 		$s = $pdo->prepare($sql);

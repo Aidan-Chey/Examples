@@ -6,10 +6,10 @@ if($_GET['Page'] == 1){
 session_start();
 $_SESSION['previousPage'] = $_SERVER['REQUEST_URI'];
 
-/****Connect to Database******/
+//Connect to Database
 	include $_SERVER['DOCUMENT_ROOT'].'/Forum/includes/db.inc.php';
 
-/****Count Posts under Thread****/
+//Count Posts under Thread
 	try{
 		$result = $pdo->query('SELECT COUNT(*)
 		FROM Posts
@@ -25,7 +25,7 @@ $_SESSION['previousPage'] = $_SERVER['REQUEST_URI'];
 	}
 	$pageCount = ceil($postCount / $postsPerPage);
 
-/****Retrieve Posts under Thread******/
+//Retrieve Posts under Thread
 	$limitStart = ($_GET['Page'] - 1) * $postsPerPage;
 	try{
 		$result = $pdo->query('SELECT Posts.ID as pID, Posts.Contents as pContents, Posts.Created as pCreated, Users.Name as uName, Users.Email as uEmail, Users.Joined as uJoin 

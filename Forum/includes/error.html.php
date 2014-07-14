@@ -6,8 +6,8 @@
 	<meta name="Author" content="Aidan Dunn">
 	<meta name="Description" content="Php Forum built for Assessment 2">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link rel="stylesheet" type="text/css" href="http://forum.aidancheyd.info/css/normalize.css"/>
-	<link rel="stylesheet" type="text/css" href="http://forum.aidancheyd.info/css/base.css"/>
+	<link rel="stylesheet" type="text/css" href="/Forum/css/normalize.css"/>
+	<link rel="stylesheet" type="text/css" href="/Forum/css/base.css"/>
 </head>
 <body>
 	<h1>An error has occured.</h1>

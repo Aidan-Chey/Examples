@@ -2,17 +2,17 @@
 session_start();
 $_SESSION['previousPage'] = $_SERVER['REQUEST_URI'];
 
-/****Connect to Database******/
+//Connect to Database
 include $_SERVER['DOCUMENT_ROOT'].'/Forum/includes/db.inc.php';
 
-/****Retrieve List of Sections******/
+//Retrieve List of Sections
 try{
 	$sectionResult = $pdo->query('SELECT Sections.ID as sID, Sections.Name as sName, Sections.Description as sDescription 
 		FROM Sections 
 		ORDER BY Sections.ID');
 }
 catch (PDOException $e){
-	$error = 'Error retrieving Sections.'. $e->getMessage();
+	$error = 'Error retrieving Sections.';
 	include $_SERVER['DOCUMENT_ROOT'].'/Forum/includes/error.html.php';
 	exit();
 }
@@ -20,7 +20,7 @@ foreach ($sectionResult as $sectionRow){
 	$sections[] = array('name' => $sectionRow['sName'], 'description' => $sectionRow['sDescription']);
 }
 
-/****Retrieve List of Topics******/
+//Retrieve List of Topics
 try{
 	$topicResult = $pdo->query('SELECT Topics.ID as tID, Topics.Name as tName, Topics.Description as tDescription, Sections.Name as sName 
 		FROM Topics 
@@ -28,7 +28,7 @@ try{
 		ORDER BY Topics.Name');
 }
 catch (PDOException $e){
-	$error = 'Error retrieving Topics.'.$e->getMessage();
+	$error = 'Error retrieving Topics.';
 	include $_SERVER['DOCUMENT_ROOT'].'/Forum/includes/error.html.php';
 	exit();
 }

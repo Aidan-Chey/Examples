@@ -2,10 +2,10 @@
 session_start();
 $_SESSION['previousPage'] = $_SERVER['REQUEST_URI'];
 
-/****Connect to Database******/
+//Connect to Database
 	include $_SERVER['DOCUMENT_ROOT'].'/Forum/includes/db.inc.php';
 
-/****Retrieve Thread******/
+//Retrieve Thread
 	try{
 		$result = $pdo->query('SELECT Threads.ID as tID, Threads.Title as tTitle, Threads.Contents as tContents, Threads.Created as tCreated, Threads.TopicID as tTopicID, Users.Name as uName, Users.Email as uEmail 
 		FROM Threads
@@ -27,7 +27,7 @@ $_SESSION['previousPage'] = $_SERVER['REQUEST_URI'];
 			'email' => $row['uEmail'],
 			'user' => $row['uName']);
 	}
-/*****Retrieve Topic Name****/
+//Retrieve Topic Name
 	try{
 		$result = $pdo->query('SELECT Name 
 		FROM Topics
@@ -43,7 +43,7 @@ $_SESSION['previousPage'] = $_SERVER['REQUEST_URI'];
 		$topic = $row['Name'];
 	}
 
-/****Count Posts under Thread****/
+//Count Posts under Thread
 	try{
 		$result = $pdo->query('SELECT COUNT(*)
 		FROM Posts
@@ -59,7 +59,7 @@ $_SESSION['previousPage'] = $_SERVER['REQUEST_URI'];
 	}
 	$pageCount = ceil($postCount / $postsPerPage);
 
-/****Retrieve Posts under Thread******/
+//Retrieve Posts under Thread
 	try{
 		$result = $pdo->query('SELECT Posts.ID as pID, Posts.Contents as pContents, Posts.Created as pCreated, Users.Name as uName, Users.Email as uEmail, Users.Joined as uJoin 
 		FROM Posts

@@ -1,5 +1,5 @@
 <?php 
-/****Logout Attempts******/
+//Logout Attempts
 if (isset($_POST['logout'])){
 	unset($_SESSION['loggedIn']);
 	unset($_SESSION['email']);

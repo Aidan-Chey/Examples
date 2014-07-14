@@ -2,10 +2,10 @@
 session_start();
 $_SESSION['previousPage'] = $_SERVER['REQUEST_URI'];
 
-/****Connect to Database******/
-	include 'includes/db.inc.php';
+//Connect to Database
+	include '/Forum/includes/db.inc.php';
 
-	/****Retrieve Threads under Topic******/
+	//Retrieve Threads under Topic
 	try{
 		$result = $pdo->query('SELECT Threads.ID as tID, Threads.Title as tTitle, SUBSTRING(Threads.Contents,1, 100) as tContent, Threads.Created as tCreated, Users.Name as uName
 		FROM Threads
@@ -16,7 +16,7 @@ $_SESSION['previousPage'] = $_SERVER['REQUEST_URI'];
 	}
 	catch (PDOException $e){
 		$error = 'Error retrieving Threads.';
-		include 'includes/error.html.php';
+		include '/Forum/includes/error.html.php';
 		exit();
 	}
 	foreach ($result as $row) {
@@ -34,7 +34,7 @@ $_SESSION['previousPage'] = $_SERVER['REQUEST_URI'];
 	}
 	catch (PDOException $e){
 		$error = 'Error retrieving Topic.';
-		include 'includes/error.html.php';
+		include '/Forum/includes/error.html.php';
 		exit();
 	}
 	foreach ($result as $row) {

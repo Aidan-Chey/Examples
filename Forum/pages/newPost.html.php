@@ -1,6 +1,6 @@
 <?php 
 if(!empty($_POST["action"]) && $_POST["action"] == "createPost" && userIsLoggedIn()){
-/****Validate Content******/
+//Validate Content
 	if(empty($_POST['content'])){
 		$contentError .= "Please enter content.";
 	}
@@ -8,17 +8,17 @@ if(!empty($_POST["action"]) && $_POST["action"] == "createPost" && userIsLoggedI
 		$contentError .= "Please enter a shorter content (max 10,000)";
 	}
 
-	/****Validate Thread******/
+	//Validate Thread
 	if(empty($_POST['thread'])){
 		$error .= "No thread was included, go back to the thread page and select the create post button.";
 	}
 
-	/****If no errors******/
+	//If no errors
 	if(empty($contentError) && empty($error)){
-		/****Connect to Database******/
+		//Connect to Database
 		include $_SERVER['DOCUMENT_ROOT'].'/Forum/includes/db.inc.php';
 
-		/****Select User Information******/
+		//Select User Information
 		try {
 			$Result = $pdo->query('SELECT Users.ID as uID
 			FROM Users
@@ -27,14 +27,14 @@ if(!empty($_POST["action"]) && $_POST["action"] == "createPost" && userIsLoggedI
 		} 
 		catch (PDOException $e) {
 			$error .= 'Error retrieving user information.';
-			include $_SERVER['DOCUMENT_ROOT'].'includes/error.html.php';
+			include $_SERVER['DOCUMENT_ROOT'].'/Forum/includes/error.html.php';
 			exit();
 		}
 		foreach($Result as $row){
 			$userInfo = array('id' => $row['uID']);
 		}
 
-		/****Insert Information into DB******/
+		//Insert Information into DB
 		try{
 			$sql = 'INSERT INTO Posts 
 			SET Posts.Contents = :content, 
@@ -48,7 +48,7 @@ if(!empty($_POST["action"]) && $_POST["action"] == "createPost" && userIsLoggedI
 		}
 		catch (PDOException $e){
 			$error .= 'Error inserting submitted post.';
-			include $_SERVER['DOCUMENT_ROOT'].'includes/error.html/php';
+			include $_SERVER['DOCUMENT_ROOT'].'/Forum/includes/error.html/php';
 			exit();
 		}
 		session_start();

@@ -1,7 +1,7 @@
 <?php 
-include 'includes/db.inc.php';
+include $_SERVER['DOCUMENT_ROOT'].'/Forum/includes/db.inc.php';
 
-/****Retrieve Post from DB*****/
+//Retrieve Post from DB*
 try {
 	$results = $pdo->query('SELECT ID, Contents, ThreadID, CreatorID
 		FROM Posts 
@@ -15,7 +15,7 @@ foreach ($results as $row) {
 	$post = array('id' => $row['ID'], 'content' => $row['Contents'], 'tId' => $row['ThreadID'], 'creator' => $row['CreatorID']); 
 }
 
-/****Check post belongs to editor****/
+//Check post belongs to editor
 try {
 	$results = $pdo->query('SELECT Email
 	FROM Users 
@@ -32,58 +32,6 @@ if($_SESSION['email'] != $user['email'] && !userHasRole('Admin')){
 	$error = 'The post you have attempted to edit, is not your own.';
 	include $_SERVER['DOCUMENT_ROOT'].'/Forum/includes/error.html.php';
 	exit();
-}
-
-if(isset($_POST['action'])){
-	if($_POST['action'] == 'Submit'){
-		/****Validate Content******/
-		if(empty($_POST['content'])){
-			$contentError .= "Please enter content.";
-		}
-		elseif($_POST['content'] == $post['content']){
-			$contentError .= "No change was made.";
-		}
-		elseif(strlen($_POST['content']) > 10000){
-			$contentError .= "Please enter a shorter content (max 10000 characters).";
-		}
-
-		/****If no errors******/
-		if(empty($contentError)){
-			try{
-				$sql = 'UPDATE Posts SET Contents = :content WHERE ID = :id';
-				$s = $pdo->prepare($sql);
-				$s->bindValue(':content', $_POST['content']);
-				$s->bindValue(':id', $post['id']);
-				$s->execute();
-			}
-			catch (PDOException $e){
-				$error = 'Error editing post.';
-				include $_SERVER['DOCUMENT_ROOT'].'/Forum/includes/error.html.php';
-				exit();
-			}
-			session_start();
-			header("Location: ".$_SESSION['previousPage']."&Messages=".urlencode(' Post edited!'));
-			exit();
-		}
-	}
-	elseif($_POST['action'] == 'Confirm Delete'){
-		try {
-			$pdo->query("DELETE FROM Posts WHERE ID = '".$post['id']."'");
-		}
-		catch (PDOException $e){
-			$error = 'Error deleting thread.';
-			include $_SERVER['DOCUMENT_ROOT'].'/Forum/includes/error.html.php';
-			exit();
-		}
-		session_start();
-		header("Location: ".$_SESSION['previousPage']."&Messages=".urlencode(' Post deleted!'));
-		exit();
-	}
-	elseif($_POST['action'] == 'Cancel'){
-		session_start();
-		header("Location: ".$_SESSION['previousPage']);
-		exit();
-	}
 }
 ?>
 <h3>Edit Post</h3>

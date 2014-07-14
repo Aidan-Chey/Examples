@@ -2,10 +2,10 @@
 session_start();
 $_SESSION['previousPage'] = $_SERVER['REQUEST_URI'];
 
-/****Connect to Database******/
+//Connect to Database
 include $_SERVER['DOCUMENT_ROOT'].'/Forum/includes/db.inc.php';
 
-/****Retrieve most recent Threads******/
+//Retrieve most recent Threads
 try{
 	$result = $pdo->query('SELECT Threads.ID as tID, Threads.Title as tTitle, Threads.Contents as tContents, Threads.Created as tCreated, Users.Name as uName
 		FROM Threads
@@ -32,11 +32,11 @@ foreach ($result as $row) {
 <?php foreach($threads as $thread): 
 	if(!empty($thread['title'])): ?>
 		<div class="Seperate">
-			<header><a href="?Thread=<?php echo $thread['id'] ?>"><?php htmlout($thread['title']); ?></a></header>
+			<header><a href="/Forum/?Thread=<?php echo $thread['id'] ?>"><?php htmlout($thread['title']); ?></a></header>
 			<section><?php htmlout($thread['contents']); ?></section>
 			<footer>
 				Created: <?php echo $thread['date']; ?> | By: <?php htmlout($thread['user']); ?>
 			</footer>
 		</div>
-<?php endif;
+	<?php endif;
 endforeach; ?>
