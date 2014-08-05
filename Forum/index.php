@@ -1,4 +1,5 @@
 <?php
+date_default_timezone_set('NZ');
 $postsPerPage = 8;
 
 //addons to assist with injection
