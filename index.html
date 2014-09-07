@@ -4,19 +4,98 @@
 	<title>Aidan's Example Sites</title>
 	<meta charset="utf-8">
 	<meta name="Author" content="Aidan Dunn">
-	<meta name="Description" content="Collection of older sites by Aidan Dunn to help demonstrate his capabilities.">
+	<meta name="Description" content="Collection of sites by Aidan Dunn to help demonstrate his capabilities.">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge"> 
-	<link rel="stylesheet" type="text/css" href="style.css">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<style type="text/css">
+	body{
+	color: black;
+	background-color: hsl(0, 65%, 35%);
+	font: medium tahoma,sans-serif;
+	}
+	a{
+	color: black;
+	text-decoration: none;
+	border-bottom: 1px solid white;
+	}
+	h1{
+	color:white;
+	text-shadow:-2px -2px 0 #000, 2px -2px 0 #000, -2px 2px 0 #000, 2px 2px 0 #000;
+	}
+	h1, p, section{
+	margin: 1em;
+	text-align: center;
+	}
+	h2{
+	font-size: 110%;
+	font-weight: 600;
+	}
+	section{
+	margin-top: 2em;
+	}
+	section+section{
+	border-top:2px solid white;
+	}
+	section>a{
+	padding:.5em;
+	margin:1em;
+	position: relative;
+	display:inline-block;
+	cursor: pointer;
+	width:350px;
+	line-height:120px;
+	border:none;
+	vertical-align: top;
+	box-shadow: 0 6px 8px 4px rgba(0, 0, 0, 0.33);
+	background-color: hsl(0, 0%, 95%);
+	}
+	section>a:active{
+	background-color: hsl(0, 0%, 85%);
+	}
+	section>a>span{
+	display: inline-block;
+	line-height: normal;
+	vertical-align: middle;
+	}
+	@media (max-width:450px){
+		section,body{
+		margin:0;
+		}
+		section>a{
+		margin:.5em auto;
+		width:90%;
+		}
+	}
+	</style>
 </head>
 <body>
 	<h1>Aidan's Example Sites</h1>
-	<p>Collection of older sites by Aidan Dunn to help demonstrate his capabilities.</p>
+	<p>Collection of sites by Aidan Dunn to help demonstrate his capabilities.</p>
 	<section>
-		<a class="button" href="/Forum/">Forum</a>
-		<a class="button" href="/Toy_Company/">Playful Toys Co.</a>
-		<a class="button" href="/WebDev_Quiz/">Web development Quiz</a>
-		<a class="button" href="/WebForm/">Web Form</a>
+		<h2>
+			Current Projects.
+		</h2>
+		<a>
+			<span><b>Outage Tracker</b> a web application to assist in keeping track of downtime of machines.<br><b>WIP: Classified</b></span>
+		</a>
+	</section>
+	<section>
+		<h2>Sites created during a web devlopment course at <a href="http://www.visioncollege.ac.nz/">Vision College</a> for assessments.</h2>
+		<a href="/Forum/">
+			<span><b>Generic Forum</b> to assess my abilities with Php. The required forum was pretty basic so this one goes beyond the requirements.</span>
+		</a>
+		<a href="/Toy_Company/">
+			<span><b>Playful Toys Co.</b> to assess my ability to develop co-operativlly. I was required to create a website without creating the Grapics, which another classmate was tasked with doing.</span>
+		</a>
+		<a href="#">
+			<span><b>Graphics</b> created for another classmate during the "Playful Toys Co." project.</span>
+		</a>
+		<a href="/WebDev_Quiz/">
+			<span><b>Web development Quiz</b> to assess my JavaScript abilities, was tasked to create the given quiz application using JavaScript to make it function.</span>
+		</a>
+		<a href="/WebForm/">
+			<span><b>Generic Web Form</b> to assess my ability to create Web forms using multiple forms of validation, bonus marks were given for sending Email and using JavaScript.</span>
+		</a>
 	</section>
 </body>
 </html>
